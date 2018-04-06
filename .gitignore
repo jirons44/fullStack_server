@@ -1,5 +1,5 @@
 node_modules
-keys.js
+config/keys.js
 nohup.out
 .DS_Store
 .idea
