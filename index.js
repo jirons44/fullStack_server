@@ -1,9 +1,16 @@
-var express = require('express');
-var app = express();
+const express = require('express');
 
-app.get('/', (req, res) => {
-    res.send({hi: 'hi there, updated for re-deploy to heroku'});
-});
+/*
+ this file is not exporting anything.
+ just need to execute the code. no need to assign
+ e.g. const passportConfig = require('./services/passport');
+ */
+require('./services/passport');
+
+const app = express();
+
+// returns a function, then calls it passing in app
+require('./routes/authRoutes')(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
