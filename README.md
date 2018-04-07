@@ -1,11 +1,23 @@
 # fullStack_server
-
+     
 ###### Tech
->dependencies
-1-express
-2-passport
-3-passport-google-oauth20
-
+- express
+- Mongoose
+- passport
+- passport-google-oauth20
+- cookie-session
+###### Oranization
+- config
+- routes
+- services 
+- index.js
+###### authentication
+- Request comes in
+- Cookie-Session Extracts cookie data
+- Passport pulls user id out of cookie data
+- deserialize User a func to turn user id from cookie into a user from mongoDb
+- User model instance added to req object as 'req.user'
+- request sent to route handler ( now has user )
 
 ###### deployed on Heroku:  
 > must have:
@@ -32,28 +44,24 @@
      heroku logs  : show logs
 
 ###### Sign-up with google oauth
--http://console.developers.google.com/
--create new project.  i called it *fullstack-server-dev*
--search for google+ api and enable it
--click on credentials...
--pick oauth clientid
--click on configure consent screen 
--fill in product name *fullstack-server-dev*
--pick web application
--authorized java script origins : http://localhost:5000
--authorized redirect url : ** http://localhost:5000/auth/google/callback
--pop-up with creds...
+
+ - http://console.developers.google.com/
+ - create new project.  i called it *fullstack-server-dev*
+- search for google+ api and enable it
+- click on credentials...
+- pick oauth clientid
+- click on configure consent screen 
+- fill in product name *fullstack-server-dev*
+- pick web application
+
+- authorized java script origins : http://localhost:5000
+
+- authorized redirect url : ** http://localhost:5000/auth/google/callback
+
+- pop-up with creds...
   client id:  a public token..okay to share. 
     
   client secret:  this needs to be secured 
  
-###### Oranization
-> flow
--config
--routes
--services 
--index.js
 
 
-
-     
