@@ -99,4 +99,22 @@ launch the browswer localhost:3000 and display a react boilerplate web app.
 - React side of our app, react server created by 'create-react-app'...will take component files bundle.js 
 using webpack and babel
 
-But Why?  we can put together...let express server up bundle.js.  yes we can.
+But Why?  we can put together...let express server up bundle.js.  yes we can.  reason...best way to start a react app
+some many built in features...webpack...dependencies....fast way to start.  saves time. worth to figure out 
+how to make react and our server work together.
+
+challenge is how to make them work together...
+
+can open two terminal windows...one in main root directory 'npm run dev' and 
+one in sub directory 'client' then run npm start.
+
+OR
+
+run in one terminal using command 'concurrently' in package.json
+...we have two package.json files....one server and one client
+...add on two additional scritps in package.json in server
+....."client": "npm run start --prefix client"  -runs in client directory
+
+
+
+  
