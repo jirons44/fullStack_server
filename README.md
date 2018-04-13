@@ -1,12 +1,12 @@
 # fullStack_server
      
-###### Tech
+## Tech
 - express
 - Mongoose
 - passport
 - passport-google-oauth20
 - cookie-session
-###### Oranization
+### Oranization
 - config
 - routes
 - services 
@@ -62,6 +62,41 @@
   client id:  a public token..okay to share. 
     
   client secret:  this needs to be secured 
- 
 
+# client react app 
+## run create-react-app client
 
+### script result 
+- Success! Created client at /Users/jiron/workspace/playground/grider/fullstack/fullStack_server/client
+Inside that directory, you can run several commands:
+
+ - yarn start
+    Starts the development server.
+
+ - yarn build
+    Bundles the app into static files for production.
+
+ - yarn test
+    Starts the test runner.
+
+ - yarn eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
+
+- We suggest that you begin by typing:
+
+   cd client
+  yarn start
+
+### notes
+
+- this install also creates a built in 'server'. u can run 'npm start' while in the client directory.  This will 
+launch the browswer localhost:3000 and display a react boilerplate web app.
+launch the browswer localhost:3000 and display a react boilerplate web app.
+
+- so we have two servers....reason why you want to have a 2nd sever for development.
+- Our express fullstack_server is only responsible for pulling out of mongo and returning JSON.
+- React side of our app, react server created by 'create-react-app'...will take component files bundle.js 
+using webpack and babel
+
+But Why?  we can put together...let express server up bundle.js.  yes we can.
