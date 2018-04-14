@@ -12,6 +12,9 @@
     Client-side:
     
     react
+    redux
+    react-redux
+    react-router-dom
     
 ### Oranization
 - config
@@ -151,7 +154,15 @@ Inside that directory, you can run several commands:
 
 #### async-await
 
-    ES2017 Promise added with this version.  
+    ES2017 Promise added with this version.  see asyncAwaitTempjs
     
     
-  
+#### client
+    index.js - data layer control ( redux )
+    App.js   - Rendering layer control ( React Router )
+        -Landing
+        -Header
+        -Dashboard -> surveyList -> SurveyListItem
+        -SurveryNew -> SurveyField
+    
+    
