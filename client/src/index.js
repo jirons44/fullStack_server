@@ -1,3 +1,9 @@
+// whenever you don't specify a path to your import
+// ...webpack searches for an NPM module in node-modules directory.
+// no need to assign to a variable
+
+import 'materialize-css/dist/css/materialize.min.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';

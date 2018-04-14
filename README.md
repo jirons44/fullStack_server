@@ -165,4 +165,22 @@ Inside that directory, you can run several commands:
         -Dashboard -> surveyList -> SurveyListItem
         -SurveryNew -> SurveyField
     
+#### CSS for this project 
+    http://materializecss.com/ - stricly CSS e z to customize...
+        partial works with React...plug ins might not work
     
+    per the instructions u can link using cdn...but
+    but...its becoming popular to use npm 
+        npm install materialize-css@next
+        
+        in node-modules you can find materialize-css..dist/css/materialize.min.css 
+        is the file we want to import.
+        
+    instructions to hook up
+        create react app uses webpack to condense.
+        
+        webpack loader for css files, include it as css
+        
+        
+    
+    https://www.material-ui.com/#/   javascript based styling...challenging to change look.
