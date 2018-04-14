@@ -26,31 +26,23 @@ passport.use(
             clientSecret: keys.google.clientSecret,
             callbackURL: '/auth/google/callback'
         },
-        (accessToken, refreshToken, profile, done) => {
+        async (accessToken, refreshToken, profile, done) => {
             // executes after callback app.get /auth/google/callback returns
             // console.log('accessToken: ', accessToken);
             // console.log('refreshToken: ', refreshToken);
             // console.log('profile: ', profile);
             // now save user to database
 
-            User.findOne({ googleId: profile.id}).
-                then( (existingUser) => {
+            const existingUser = await User.findOne({ googleId: profile.id});
 
-                if (existingUser) {
-                    // firsts parm is the error object
-                    done(null, existingUser);
+            if (existingUser) {
+                return done(null, existingUser);
+            }
 
-                } else {
-                    new User(
-                        {
-                            googleId: profile.id,
-                            displayName: profile.displayName
-                        }
-                    ).save()
-                        .then(user => done(null, user));
+            const newUser = {googleId: profile.id, displayName: profile.displayName };
+            const user = await new User(newUser).save();
+            done(null, user);
 
-                }
-            });
         }
     )
 );

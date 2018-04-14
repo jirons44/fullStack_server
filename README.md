@@ -1,11 +1,18 @@
 # fullStack_server
      
 ## Tech
-- express
-- Mongoose
-- passport
-- passport-google-oauth20
-- cookie-session
+    server-side:
+    
+    express
+    Mongoose
+    passport
+    passport-google-oauth20
+    cookie-session
+    
+    Client-side:
+    
+    react
+    
 ### Oranization
 - config
 - routes
@@ -90,31 +97,61 @@ Inside that directory, you can run several commands:
 
 ### notes
 
-- this install also creates a built in 'server'. u can run 'npm start' while in the client directory.  This will 
-launch the browswer localhost:3000 and display a react boilerplate web app.
-launch the browswer localhost:3000 and display a react boilerplate web app.
+#### set up server and client scripts
 
-- so we have two servers....reason why you want to have a 2nd sever for development.
-- Our express fullstack_server is only responsible for pulling out of mongo and returning JSON.
-- React side of our app, react server created by 'create-react-app'...will take component files bundle.js 
-using webpack and babel
+    This install also creates a built in 'server'. u can run 'npm start' while in the client directory.  This will 
+    launch the browswer localhost:3000 and display a react boilerplate web app.
+    launch the browswer localhost:3000 and display a react boilerplate web app.
+    
+        - so we have two servers....reason why you want to have a 2nd sever for development.
+        - Our express fullstack_server is only responsible for pulling out of mongo and returning JSON.
+        - React side of our app, react server created by 'create-react-app'...will take component files bundle.js 
+        using webpack and babel
+    
+    But Why?  we can put together...let express server up bundle.js.  yes we can.  reason...best way to start a react app
+    some many built in features...webpack...dependencies....fast way to start.  saves time. worth to figure out 
+    how to make react and our server work together.
+    
+    challenge is how to make them work together...
+    
+    can open two terminal windows...one in main root directory 'npm run dev' and 
+    one in sub directory 'client' then run npm start.
+    
+    OR
+    
+    run in one terminal using command *'concurrently'* in package.json
+    ...we have two package.json files....one server and one client
+    ...add on two additional scritps in package.json in server
+    ....."client": "npm run start --prefix client"  -runs in client directory
 
-But Why?  we can put together...let express server up bundle.js.  yes we can.  reason...best way to start a react app
-some many built in features...webpack...dependencies....fast way to start.  saves time. worth to figure out 
-how to make react and our server work together.
+#### Dev mode - via proxy set-up
 
-challenge is how to make them work together...
+    config client to hit server port 5000
+    update client package.json and add a "proxy" object to point to dev domain
+  
+    create-react-app...uses proxy object, will re-route to serverlocalhost:5000
+  
+    * only for dev...when building for prod...the create-react-app server doesn't even exist ..see below
+  
+    in prod, when our app loads up..browser recognized the domain\app url...so proxy won't be needed, nor cors.
 
-can open two terminal windows...one in main root directory 'npm run dev' and 
-one in sub directory 'client' then run npm start.
+#### prod mode - build
+    
+    In production, 'create-react-app' server *DOES NOT EXIST*, only for dev.
+    Before we go to prod, we are going to build our react project....
+    create-react app will run webpack and babel and save a prod build in the public folder 
+    here. bundle.js   
+     
+    in production, express our server, will use public folder and its 
+    assests(.js bundle, css, etc..) and push to client.
+      
+    *NPM RUN BUILD*....will create prod build in public foler with two files.  
+    main.someHasCode.js and 
+    main.someHashCode.js.map
 
-OR
+#### async-await
 
-run in one terminal using command 'concurrently' in package.json
-...we have two package.json files....one server and one client
-...add on two additional scritps in package.json in server
-....."client": "npm run start --prefix client"  -runs in client directory
-
-
-
+    ES2017 Promise added with this version.  
+    
+    
   
