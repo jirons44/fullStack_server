@@ -13,14 +13,18 @@ module.exports = app => {
     //this one gets the code in url
     app.get(
         '/auth/google/callback',
-        passport.authenticate('google')
+        passport.authenticate('google'),  //passport middleware
+        (req, res) => {
+            // successfully authenticated
+            res.redirect('/surveys');
+        }
     );
 
     // req.logout is a function added by passport, takes cookie and
     // kills the cookie
     app.get('/api/logout', (req, res) => {
         req.logout();
-        res.send(req.user);
+        res.redirect('/');
     });
 
     // made up to test who is the currently logged in

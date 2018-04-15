@@ -16,7 +16,7 @@ class Header extends Component {
                                <li><a href="/auth/google">Login with Google</a></li>
                             }
                             { this.props.auth &&
-                               <li><a>Logout</a></li>
+                               <li><a href="/api/logout">Logout</a></li>
                             }
                         </ul>
 
