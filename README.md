@@ -184,3 +184,10 @@ Inside that directory, you can run several commands:
         
     
     https://www.material-ui.com/#/   javascript based styling...challenging to change look.
+
+#### redux-thunk
+    action creator produces an action. 
+    action creator is passing an action to the dispatch function
+    ...belongs to the redux store. and then forwared over to the reducers in the store.
+    
+    redux-thunk is giving us access to dispatch function...you can manually dispatch an action.
